@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Mum ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f8e1f4, #e0f7fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #c2185b;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .heart {
+            font-size: 30px;
+            margin-top: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #c2185b;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ad1457;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Mum ❤️</h1>
+
+    <p>
+        I want to apologise for the way things went today and for the way I spoke to you.
+        I should not have responded the way I did. Even if I was frustrated,
+        I know I could have handled it better.
+    </p>
+
+    <p>
+        I never meant to disrespect you or make you feel unappreciated.
+        I truly see and appreciate everything you and Dad have done for me —
+        the sacrifices, the support with school, and always trying to give me the best.
+        I don’t take that lightly.
+    </p>
+
+    <p>
+        When I told you to go find the card, it wasn’t to belittle you.
+        I understand that it came across as rude and dismissive,
+        and for that I’m truly sorry.
+    </p>
+
+    <p>
+        I love you, Mum. I don’t want money or studies to come between us.
+        I just want peace between us. I promise to work on my tone
+        and how I respond, especially when things get heated.
+    </p>
+
+    <button onclick="showMessage()">Click Here ❤️</button>
+
+    <div class="hidden-message" id="extraMessage">
+        Please forgive me.  
+        <br><br>
+        Love always,  
+        <br>
+        Braedon
+    </div>
+
+    <div class="heart">💗</div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("extraMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
