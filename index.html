@@ -14,6 +14,27 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            overflow: hidden;
+        }
+
+        /* Floating hearts */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.4);
+            font-size: 20px;
+            animation: floatUp 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            20% { opacity: 1; }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
         }
 
         .card {
@@ -23,6 +44,8 @@
             width: 90%;
             max-width: 600px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
@@ -40,50 +63,83 @@
             margin-top: 15px;
         }
 
+        /* Irresistible Button */
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
+            margin-top: 25px;
+            padding: 14px 30px;
             border: none;
-            border-radius: 20px;
-            background-color: #c2185b;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff4d6d, #ff758f);
             color: white;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
         }
 
         button:hover {
-            background-color: #ad1457;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 77, 109, 1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 77, 109, 0.6);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(255, 77, 109, 1);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 77, 109, 0.6);
+            }
         }
 
         .hidden-message {
             display: none;
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
             color: #c2185b;
+            opacity: 0;
         }
     </style>
 </head>
 <body>
+
+<!-- Floating Hearts -->
+<div class="floating-heart" style="left:10%;">💗</div>
+<div class="floating-heart" style="left:30%; animation-delay:2s;">💖</div>
+<div class="floating-heart" style="left:50%; animation-delay:4s;">💗</div>
+<div class="floating-heart" style="left:70%; animation-delay:1s;">💖</div>
+<div class="floating-heart" style="left:90%; animation-delay:3s;">💗</div>
 
 <div class="card">
     <h1>Mum ❤️</h1>
 
     <p>
         I want to apologise for the way things went and for the way I spoke to you.
-        I should not have responded the way I did. Even if I was frustrated
+        I should not have responded the way I did. Even if I was frustrated,
         I know I could have handled it better.
     </p>
 
     <p>
         I never meant to disrespect you or make you feel unappreciated.
-        I truly see and appreciate everything you and Dad have done for me 
+        I truly see and appreciate everything you and Dad have done for me —
         the sacrifices, the support with school, and always trying to give me the best.
         I don’t take that lightly.
     </p>
 
     <p>
         When I told you to go find the card, it wasn’t to belittle you.
-        I understand that it came across as rude
+        I understand that it came across as rude,
         and for that I’m truly sorry.
     </p>
 
@@ -93,12 +149,12 @@
         and how I respond especially when things get heated.
     </p>
 
-    <button onclick="showMessage()">Click Here </button>
+    <button onclick="showMessage()">Press Me Mum 💕</button>
 
     <div class="hidden-message" id="extraMessage">
         Please forgive me.  
         <br><br>
-        Love always 
+        Love always  
         <br>
         Braedon
     </div>
@@ -108,7 +164,12 @@
 
 <script>
 function showMessage() {
-    document.getElementById("extraMessage").style.display = "block";
+    const message = document.getElementById("extraMessage");
+    message.style.display = "block";
+    setTimeout(() => {
+        message.style.transition = "opacity 1.5s ease";
+        message.style.opacity = "1";
+    }, 100);
 }
 </script>
 
